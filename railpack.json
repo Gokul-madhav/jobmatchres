@@ -4,25 +4,11 @@
     "install": {
       "commands": [
         "pip install --upgrade pip",
-        "pip install -e ."
+        "pip install -r requirements.txt"
       ]
     }
   },
   "deploy": {
-    "startCommand": "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"
-  }
-}
-      "inputs": [
-        {
-          "step": "install-frontend"
-        }
-      ],
-      "commands": [
-        "cd rezjd && npm run build"
-      ]
-    }
-  },
-  "deploy": {
-    "startCommand": "uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    "startCommand": "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
   }
 }
