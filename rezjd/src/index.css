@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ── */
+:root {
+  --bg: #F5F5F0;
+  --card: #FFFFFF;
+  --primary: #4A6C6F;
+  --accent: #C2A878;
+  --text: #2E2E2E;
+  --muted: #8A8A8A;
+  --border: #E5E5E0;
+}
+
+.dark {
+  --bg: #0D0D0D;
+  --card: #1A1A1A;
+  --primary: #7F5AF0;
+  --accent: #E94560;
+  --text: #EAEAEA;
+  --muted: #6B6B6B;
+  --border: #2A2A2A;
+}
+
+/* ── Base ── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Noto Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+}
+
+/* ── Typography ── */
+.dark h1, .dark h2, .dark h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ── Glassmorphism (dark only) ── */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Glow utilities ── */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(127, 90, 240, 0.25);
+}
+.glow-accent {
+  box-shadow: 0 0 20px rgba(233, 69, 96, 0.25);
+}
+
+/* ── Transitions ── */
+.transition-theme {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ── Score ring ── */
+.score-ring {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* ── Drag over ── */
+.drag-over {
+  border-color: var(--primary) !important;
+  background-color: rgba(74, 108, 111, 0.05);
+}
+.dark .drag-over {
+  background-color: rgba(127, 90, 240, 0.08);
+}
+
+/* ── Skeleton shimmer ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--border) 25%, rgba(255,255,255,0.1) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Step connector ── */
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  transition: background 0.4s ease;
+}
+.step-connector.active {
+  background: var(--primary);
+}

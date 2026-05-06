@@ -1,0 +1,9 @@
+/.env
+/.hypothesis
+/.kiro
+/.pytest_cache
+/.vscode
+/sample_resume_clean.pdf
+/sample_resume_modern.pdf
+/tests
+/_diag_skills_edu.py
