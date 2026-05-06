@@ -1,17 +1,17 @@
 {
+  "provider": "python",
   "steps": {
-    "install-backend": {
+    "install": {
       "commands": [
         "pip install --upgrade pip",
         "pip install -e ."
       ]
-    },
-    "install-frontend": {
-      "commands": [
-        "cd rezjd && npm install"
-      ]
-    },
-    "build-frontend": {
+    }
+  },
+  "deploy": {
+    "startCommand": "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"
+  }
+}
       "inputs": [
         {
           "step": "install-frontend"
